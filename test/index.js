@@ -42,5 +42,44 @@ describe('index.js', function () {
     it ('9.178.1350-beta.66.0.183.99999 == 9.178.1350-beta.66.0.183.99999', function () {
         compare('9.178.1350-beta.66.0.183.99999', '9.178.1350-beta.66.0.183.99999').should.equal(0);
     });
+    
+    it ('1.10.3-65.el6 > 1.10.3-42z1.el6_7', function () {
+        compare('1.10.3-65.el6', '1.10.3-42z1.el6_7').should.equal(1);
+    })
+    
+    it ('1.4 < 1.4-rc2', function () {
+        compare('1.4', '1.4-rc2').should.equal(-1);
+    })
+    
+    it ('1.0.0a1 < 1.0.0-0.1.a1', function () {
+        compare('1.0.0a1', '1.0.0-0.1.a1').should.equal(-1);
+    })
+    it ('1.0.0b1 < 1.0.0-0.1.b1', function () {
+        compare('1.0.0b1', '1.0.0-0.1.b1').should.equal(-1);
+    })
+    
+    it ('1.0.0b2 < 1.0.0-0.1.b2', function () {
+        compare('1.0.0b2', '1.0.0-0.1.b2').should.equal(-1);
+    })
+    
+    it ('1.0.0b2 < 1.0.0-0.2.b2', function () {
+        compare('1.0.0b2', '1.0.0-0.2.b2').should.equal(-1);
+    })
+    
+    it ('1.0.0rc1 < 1.0.0-0.1.rc1', function () {
+        compare('1.0.0rc1', '1.0.0-0.1.rc1').should.equal(-1);
+    })
+    
+    it ('1.0.0 < 1.0.0-1', function () {
+        compare('1.0.0', '1.0.0-1').should.equal(-1);
+    })
+    
+    it ('1.0.1a1 < 1.0.1-0.1.a1', function () {
+        compare('1.0.1a1', '1.0.1-0.1.a1').should.equal(-1);
+    })
+    
+    it ('1.0.1 < 1.0.1-1', function () {
+        compare('1.0.1', '1.0.1-1').should.equal(-1);
+    })
 
 })
