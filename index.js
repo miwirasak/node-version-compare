@@ -17,6 +17,14 @@ function compare (v1, v2) {
             return 1
         } else if(arr1[i] < arr2[i]) {
             return -1
+        }else if(arr1[i] != arr2[i] && beginWithInt(arr1[i]) && beginWithInt(arr2[i]) ){
+        	var intArr1 = parseInt(arr1[i]);
+        	var intArr2 = parseInt(arr2[i]);
+        	if(intArr1 > intArr2){
+        		return 1;
+        	}else if(intArr1 < intArr2){
+        		return -1
+        	}
         }
     }
     return 0;
@@ -40,6 +48,15 @@ function convertToNumber (arr) {
     return arr.map(function (el) {
         return isNaN(el) ? el : parseInt(el);
     });
+}
+
+function beginWithInt (testInt) {
+	var intRegex = /^\d+/;
+	if(intRegex.test(testInt)) {
+	    return 1;
+	}else{
+		return 0;
+	}
 }
 
 module.exports = compare;
